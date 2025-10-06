@@ -1,4 +1,4 @@
-package io.github.dotle0.student_management_system;
+package io.github.dotle0.student_management_system.model;
 
 public class Student {
 	private int id;
