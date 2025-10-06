@@ -1,6 +1,7 @@
 package io.github.dotle0.student_management_system;
 
 public class Course {
+	private int id;
 	private String title;
 
 	public Course(String title) {
@@ -13,6 +14,14 @@ public class Course {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	
