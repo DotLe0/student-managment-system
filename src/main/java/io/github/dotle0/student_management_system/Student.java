@@ -6,16 +6,16 @@ public class Student {
 	private int id;
 	private String firstName;
 	private String lastName;
-	private String grade;
+	private String classLevel;
 	private List<CourseGrade> coursesGrades;
 	
 	
-	public Student(int id, String firstName, String lastName, String grade)
+	public Student(int id, String firstName, String lastName, String classLevel)
 	{
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.grade = grade;
+		this.classLevel = classLevel;
 	}
 	
 	public int getId() {
@@ -36,11 +36,13 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getGrade() {
-		return grade;
+
+	public String getClassLevel() {
+		return classLevel;
 	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+
+	public void setClassLevel(String classLevel) {
+		this.classLevel = classLevel;
 	}
 
 	public List<CourseGrade> getCoursesGrades() {
