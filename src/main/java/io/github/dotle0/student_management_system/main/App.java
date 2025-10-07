@@ -1,10 +1,11 @@
 package io.github.dotle0.student_management_system.main;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-import dao.StudentDAO;
-import model.Student;
+import dao.*;
+import model.*;
 import util.DBhelper;
 
 public class App
@@ -13,17 +14,14 @@ public class App
     {
     	wellcomeText();
     	
-    	Student newStudent = new Student("George", "Russel", "10A");
-    	
-    	StudentDAO studentDao = new StudentDAO(DBhelper.getConnection());
-    	
-    	studentDao.removeStudent(newStudent);
     	
     	
-    	List<Student> students = studentDao.getAllStudents();
+    	CourseDAO courseDao = new CourseDAO(DBhelper.getConnection());
     	
-    	for(Student student : students) {
-    		System.out.println(student.getFirstName() + " " + student.getLastName());
+    	List<Course> courses = courseDao.showAllCourses();
+
+    	for(Course course : courses) {
+    		courseDao.removeCourse(course);
     	}
     	
     	DBhelper.closeConnection();

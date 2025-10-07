@@ -42,7 +42,7 @@ public class StudentDAO {
 	}
 	
 	public List<Student> getAllStudents() throws SQLException {
-		List<Student> result = new ArrayList<Student>();
+		List<Student> students = new ArrayList<Student>();
 		
 		String sql = "SELECT * FROM students";
 		
@@ -50,13 +50,14 @@ public class StudentDAO {
 		ResultSet rs = stmt.executeQuery(sql);
 		
 		while(rs.next()) {
-			result.add(new Student(
+			students.add(new Student(
+					rs.getInt("id"),
 					rs.getString("firstName"),
 					rs.getString("lastName"),
 					rs.getString("classLevel")
 					));
 		}
 		
-		return result;
+		return students;
 	}
 }

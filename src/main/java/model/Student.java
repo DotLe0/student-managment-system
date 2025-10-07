@@ -14,6 +14,14 @@ public class Student {
 		this.classLevel = classLevel;
 	}
 	
+	public Student(int id, String firstName, String lastName, String classLevel)
+	{
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.classLevel = classLevel;
+	}
+	
 	public int getId() {
 		return id;
 	}
