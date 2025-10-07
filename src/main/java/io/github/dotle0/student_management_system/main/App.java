@@ -1,33 +1,33 @@
 package io.github.dotle0.student_management_system.main;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
+
+import dao.StudentDAO;
+import model.Student;
+import util.DBhelper;
 
 public class App
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws SQLException
     {
-    	final String jdbcUrl = "jdbc:sqlite:SMSDB.db";
+    	wellcomeText();
     	
-    	try {
-			Connection connection = DriverManager.getConnection(jdbcUrl);
-			
-			String sql = "CREATE TABLE courseGrade ("
-					+ "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-					+ "student_id INT NOT NULL,"
-					+ "course_id INT NOT NULL,"
-					+ "grade FLOAT,"
-					+ "FOREIGN KEY (student_id) REFERENCES students(id),"
-					+ "FOREIGN KEY (course_id) REFERENCES course(id),"
-					+ "UNIQUE (student_id, course_id));";
-			PreparedStatement prep = connection.prepareStatement(sql);
-			prep.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	Student newStudent = new Student("George", "Russel", "10A");
+    	
+    	StudentDAO studentDao = new StudentDAO(DBhelper.getConnection());
+    	
+    	studentDao.removeStudent(newStudent);
+    	
+    	
+    	List<Student> students = studentDao.getAllStudents();
+    	
+    	for(Student student : students) {
+    		System.out.println(student.getFirstName() + " " + student.getLastName());
+    	}
+    	
+    	DBhelper.closeConnection();
+    	
     }
     
     public static void wellcomeText() {
