@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Course;
 import model.Student;
 
 public class CourseGradeDAO {
-	//Show students grades
-	//Show students grades per course
 	private Connection connection;
 	
 	public CourseGradeDAO(Connection connection) {
@@ -78,5 +78,46 @@ public class CourseGradeDAO {
 		float avr = rs.getFloat(1);
 		
 		System.out.println("Average grade for course: " + avr);
+	}
+	
+	public List<Float> getAllGradesForStudent(Student s) throws SQLException {
+		List<Float> grades = new ArrayList<Float>();
+		
+		String sql = "SELECT grade FROM CourseGrade WHERE "
+				+ "student_id=(SELECT id FROM students WHERE firstName=? AND lastName=?)";
+		
+		PreparedStatement stmt = connection.prepareStatement(sql);
+		stmt.setString(1, s.getFirstName());
+		stmt.setString(2, s.getLastName());
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		while(rs.next()) {
+			grades.add(rs.getFloat(1));
+		}
+		
+		return grades;
+	}
+	
+	public List<Float> getAllGradesForStudentByCourse(Student s, Course c) throws SQLException {
+		List<Float> grades = new ArrayList<Float>();
+		
+		String sql = "SELECT grade FROM CourseGrade WHERE"
+				+ "    student_id=(SELECT id FROM students WHERE firstName=? AND lastName=?)"
+				+ "    AND"
+				+ "    course_id=(SELECT id FROM course WHERE title=?);";
+		
+		PreparedStatement stmt = connection.prepareStatement(sql);
+		stmt.setString(1, s.getFirstName());
+		stmt.setString(2, s.getLastName());
+		stmt.setString(3, c.getTitle());
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		while(rs.next()) {
+			grades.add(rs.getFloat(1));
+		}
+		
+		return grades;
 	}
 }
