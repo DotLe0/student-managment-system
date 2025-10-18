@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dotle0.student_management_system.main.StudentsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.dotle0.student_management_system.main.StudentsController">
    <children>
-      <Button fx:id="addStudentBtn" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="180.0" text="Add student" />
-      <Button fx:id="removeStudentBtn" layoutX="208.0" layoutY="340.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="186.0" text="Remove student" />
-      <Button fx:id="showAllStudentsBtn" layoutX="406.0" layoutY="340.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="180.0" text="Show all students" />
-      <TableView fx:id="tableView" layoutX="14.0" layoutY="14.0" prefHeight="321.0" prefWidth="577.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <Button fx:id="addStudentBtn" layoutX="112.0" layoutY="541.0" mnemonicParsing="false" onAction="#addStudentToDB" prefHeight="46.0" prefWidth="180.0" text="Add student" />
+      <Button fx:id="removeStudentBtn" layoutX="306.0" layoutY="541.0" mnemonicParsing="false" onAction="#removeStudentFromDB" prefHeight="46.0" prefWidth="186.0" text="Remove student" />
+      <Button fx:id="showAllStudentsBtn" layoutX="504.0" layoutY="541.0" mnemonicParsing="false" onAction="#showAllStudentsInDB" prefHeight="46.0" prefWidth="180.0" text="Show all students" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="14.0" prefHeight="465.0" prefWidth="766.0" />
+      <Line endX="399.0" layoutX="382.0" layoutY="490.0" startX="-366.0" />
+      <Label layoutX="34.0" layoutY="507.0" text="First name:" />
+      <TextField fx:id="firstName" layoutX="105.0" layoutY="503.0" />
+      <Label layoutX="284.0" layoutY="507.0" text="Last name:" />
+      <TextField fx:id="lastName" layoutX="355.0" layoutY="503.0" />
+      <Label layoutX="528.0" layoutY="507.0" text="Class level:" />
+      <TextField fx:id="classLevel" layoutX="599.0" layoutY="503.0" />
    </children>
 </AnchorPane>
