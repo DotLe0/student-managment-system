@@ -1,19 +1,19 @@
-package model;
+package io.github.dotle0.student_management_system.model;
 
 public class Student {
 	private int id;
 	private String firstName;
 	private String lastName;
 	private String classLevel;
-	
-	
+
+
 	public Student(String firstName, String lastName, String classLevel)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.classLevel = classLevel;
 	}
-	
+
 	public Student(int id, String firstName, String lastName, String classLevel)
 	{
 		this.id = id;
@@ -21,7 +21,7 @@ public class Student {
 		this.lastName = lastName;
 		this.classLevel = classLevel;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
