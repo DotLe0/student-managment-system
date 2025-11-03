@@ -29,10 +29,6 @@ public class StudentsController {
 	@FXML
 	private TableView table = new TableView<Student>();
 	
-
-
-	// TODO method to add, remove and show all students
-
 	public void initialize() throws IOException, SQLException {
 		
 		TableColumn firstNameColumn = new TableColumn<Student, String>("First name");
