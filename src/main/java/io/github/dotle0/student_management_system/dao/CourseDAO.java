@@ -11,8 +11,6 @@ import java.util.List;
 import io.github.dotle0.student_management_system.model.Course;
 
 
-
-
 public class CourseDAO {
 	//show all courses
 
