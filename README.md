@@ -58,3 +58,4 @@ Below are demo screenshots showcasing the main sections of the application.
 ## 📜 License
 
 This project is released under the MIT License.
+This project is for learning purposes.
