@@ -71,7 +71,7 @@ public class CoursesController {
 		System.out.println("Removed a course");
 	}
 	
-	public void showAllCourses() throws SQLException {System.out.println("Added a course");
+	public void showAllCourses() throws SQLException {
 		CourseDAO courseDao = new CourseDAO(DBhelper.getConnection());
 		
 		List<Course> courses = courseDao.showAllCourses();
