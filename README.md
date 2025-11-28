@@ -10,7 +10,7 @@ Below are demo screenshots showcasing the main sections of the application.
 
 ### 1. Students Panel
 
-![Students Panel](/ImagesForReadMe/readme1.png)
+![Students Panel](/ImagesForReadMe/readme12.png)
 
 ### 2. Courses Panel
 
